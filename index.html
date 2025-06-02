@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-T">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Um Desafio Especial!</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Um Desafio Especial para Tai!</h1>
+        <p class="introducao">
+            Olá, Tai! Sei que sua rotina é uma <code>multithread</code> incrível entre trabalho, estudos, soltar a voz e as missões de desbravadora! 😮<br>
+            Que tal um <code>breakpoint</code> divertido e rápido? Preparei um enigma digital para você. Pronta?
+        </p>
+
+        <div id="pista1" class="pista-container">
+            <h2>Pista 1: O Comando Versátil</h2>
+            <p>No mundo do versionamento, qual comando `git` é usado tanto para buscar as últimas atualizações de um `remote` quanto para mesclá-las com seu `branch` local, tudo em um só passo?</p>
+            <p class="dica">(Dica: É como "puxar" as novidades.)</p>
+            <input type="text" id="respostaPista1" placeholder="Digite o comando git">
+            <button onclick="verificarPista1()">Verificar</button>
+            <p id="feedbackPista1" class="feedback"></p>
+        </div>
+
+        <div id="pista2" class="pista-container" style="display: none;">
+            <h2>Pista 2: A Cor Escondida</h2>
+            <p>Parabéns! Agora, um desafio de `frontend`.</p>
+            <p>Inspecione o elemento abaixo (botão direito do mouse > Inspecionar). Há uma classe CSS nele com um nome... peculiar. Essa classe define uma cor de fundo. Qual o NOME dessa cor (em inglês, tudo minúsculo)?</p>
+            <div id="elementoColorido" class="deep-sky-blue-for-a-date">Este bloco tem a resposta na sua classe!</div>
+            <input type="text" id="respostaPista2" placeholder="Nome da cor em inglês">
+            <button onclick="verificarPista2()">Verificar</button>
+            <p id="feedbackPista2" class="feedback"></p>
+        </div>
+
+        <div id="pista3" class="pista-container" style="display: none;">
+            <h2>Pista 3: Mensagem Secreta</h2>
+            <p>Você está quase lá! A última parte do enigma não está visível aqui...</p>
+            <p>Dizem que os melhores `desenvolvedores` sempre dão uma olhada no `console` (Ctrl+Shift+I ou Cmd+Option+I) em busca de `logs` importantes. Há uma mensagem para você lá com a palavra-chave final.</p>
+            <input type="text" id="respostaPista3" placeholder="Palavra-chave do console">
+            <button onclick="verificarPista3()">Desvendar!</button>
+            <p id="feedbackPista3" class="feedback"></p>
+        </div>
+
+        <div id="conviteFinal" class="convite-container" style="display: none;">
+            <h2>O Código Foi Quebrado!</h2>
+            <p>Parabéns, Tai! Sua habilidade para resolver esses desafios foi impressionante.</p>
+            <p>Assim como você navegou por essas pistas, que tal navegarmos juntos por uma boa conversa e, quem sabe, uma pizza ou um bom churrasco?</p>
+            <p>Minha `proposta de valor` é simples: boa companhia e (espero) boas risadas.</p>
+            <p>Você aceitaria esse `merge request` para uma saída?</p>
+            <div class="botoes-convite">
+                <button id="aceitarConvite" class="botao-sim">Sim, `git commit -m "Aceito!"`</button>
+                <button id="pensarConvite" class="botao-talvez">Hmm, `git stash` por enquanto (preciso pensar/conversar)</button>
+            </div>
+            <p id="feedbackConvite" class="feedback-final"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
