@@ -94,30 +94,49 @@ function mostrarConvite() {
     });
 
     pensarButton.addEventListener('mouseover', function() {
-        this.style.position = 'absolute';
+        this.style.position = 'absolute'; 
 
-        const containerRect = conviteContainer.getBoundingClientRect();
-        const buttonRect = this.getBoundingClientRect();
-
-        const maxX = conviteContainer.clientWidth - buttonRect.width;
-        const maxY = conviteContainer.clientHeight - buttonRect.height;
+        const maxX = conviteContainer.clientWidth - this.offsetWidth;
+        const maxY = conviteContainer.clientHeight - this.offsetHeight;
 
         let newX = Math.random() * maxX;
         let newY = Math.random() * maxY;
 
-        newX = Math.max(0, newX);
-        newY = Math.max(0, newY);
+        newX = Math.max(0, newX); 
+        newY = Math.max(0, newY); 
 
         this.style.left = newX + 'px';
         this.style.top = newY + 'px';
-        if (feedbackConviteEl.textContent.includes("Uau, você conseguiu!")) {
-             feedbackConviteEl.textContent = '';
-        }
+
+        feedbackConviteEl.textContent = '';
     });
 
+    pensarButton.addEventListener('click', function(event) {
+        event.preventDefault(); 
 
-    pensarButton.addEventListener('click', function() {
-        feedbackConviteEl.innerHTML = "Uau, você conseguiu! Mas ainda espero que aceite o 'merge request' principal! 😉 <br>Tente o botão de aceitar!";
+        feedbackConviteEl.textContent = "Essa foi por pouco! Parece que este botão é 'somente leitura' 😉. Tente o de aceitar!";
         feedbackConviteEl.style.color = 'var(--cor-info)';
+
+        this.innerHTML = "Quase! 😜";
+        this.style.opacity = '0.7';
+        this.style.transform = 'scale(0.95)'; 
+
+        this.style.position = 'absolute'; 
+        const maxX = conviteContainer.clientWidth - this.offsetWidth;
+        const maxY = conviteContainer.clientHeight - this.offsetHeight;
+        let newX = Math.random() * maxX;
+        let newY = Math.random() * maxY;
+        newX = Math.max(0, newX);
+        newY = Math.max(0, newY);
+        this.style.left = newX + 'px';
+        this.style.top = newY + 'px';
+
+        setTimeout(() => {
+            if (document.body.contains(this)) {
+                this.innerHTML = textoOriginalPensarButton; 
+                this.style.opacity = '1';
+                this.style.transform = 'scale(1)';
+            }
+        }, 1500); 
     });
 }
