@@ -110,9 +110,11 @@ function mostrarConvite() {
 
         this.style.left = newX + 'px';
         this.style.top = newY + 'px';
-
-        feedbackConviteEl.textContent = ''; 
+        if (feedbackConviteEl.textContent.includes("Uau, você conseguiu!")) {
+             feedbackConviteEl.textContent = '';
+        }
     });
+
 
     pensarButton.addEventListener('click', function() {
         feedbackConviteEl.innerHTML = "Uau, você conseguiu! Mas ainda espero que aceite o 'merge request' principal! 😉 <br>Tente o botão de aceitar!";
